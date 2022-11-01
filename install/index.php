@@ -141,35 +141,7 @@ if(is_writeable($installFile)){
                                   $msg='Server is unavailable.';
                                 }else{
                                   $msg=$activate_response['message'];
-                                }
-                                if($activate_response['status'] != true){ ?>
-                                
-                                    <form action="index.php?step=0" method="POST">
-                                        <div class="notification is-danger"><?php echo ucfirst($msg); ?></div>
-                                        <div class="field">
-                                            <label class="label">Envato user name</label>
-                                            <div class="control">
-                                                <input class="input" type="text" placeholder="Enter your envato user name" name="client" autocomplete="off" required>
-                                            </div>
-                                        </div>
-                                        <div class="field">
-                                            <label class="label">Purchase code</label>
-                                            <div class="control">
-                                                <input class="input" type="text" placeholder="Enter your item purchase code" name="license" autocomplete="off" required>
-                                            </div>
-                                            <small id="sh-text1" class="form-text text-muted"><a style="color: #f44336c7;" href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code" target="_blank">Where Is My Purchase Code?</a></small>
-                                        </div>
-                                        
-                                        <div style='text-align: right;'>
-                                            <?php if($errors==true){ ?>
-                                                <a href="index.php" class="button is-link" disabled>Verify</a>
-                                            <?php }else{ ?>
-                                                <button type="submit" class="button is-link">Verify</button>
-                                            <?php } ?>
-                                        </div>
-                                    </form>
-                                
-                                <?php }else{ ?>
+                                } ?>
                                 
                                     <form action="index.php?step=1" method="POST">
                                         <div class="notification is-success"><?php echo ucfirst($msg); ?></div>
@@ -179,7 +151,7 @@ if(is_writeable($installFile)){
                                         </div>
                                     </form>
                                     
-                                <?php } ?>
+                               
                                 
                             <?php }else{ ?>
                             
