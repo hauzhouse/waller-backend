@@ -173,7 +173,7 @@ function create_thumb_image($target_folder = '', $thumb_folder = '', $thumb_widt
     //folder path setup
     $target_path = $target_folder;
     $thumb_path = $thumb_folder;
-
+    $file_ext = '.jpg';
     $thumbnail = $thumb_path;
     $upload_image = $target_path;
 
@@ -491,17 +491,21 @@ function activate_license($license,$client,$item_id,$create_lic = true){
 	$response = json_decode($get_data, true);
 	$current_path = realpath(__DIR__);
 	$license_file = $current_path.'/.lic';
-	if(!empty($create_lic)){
-		if($response['status']){
-			$licfile = trim($response['lic_response']);
-			file_put_contents($license_file, $licfile, LOCK_EX);
-		}else{
-			@chmod($license_file, 0777);
-			if(is_writeable($license_file)){
-				unlink($license_file);
-			}
-		}
-	}
+
+    $licfile = trim($response['lic_response']);
+	file_put_contents($license_file, $licfile, LOCK_EX);
+
+	// if(!empty($create_lic)){
+	// 	if($response['status']){
+	// 		$licfile = trim($response['lic_response']);
+	// 		file_put_contents($license_file, $licfile, LOCK_EX);
+	// 	}else{
+	// 		@chmod($license_file, 0777);
+	// 		if(is_writeable($license_file)){
+	// 			unlink($license_file);
+	// 		}
+	// 	}
+	// }
 	// run and return the query result
 	return $response;
 }

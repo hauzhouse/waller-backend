@@ -128,7 +128,8 @@ if(is_writeable($installFile)){
                             <?php
                               $license_code = null;
                               $client_name = null;
-                              if(!empty($_POST['license'])&&!empty($_POST['client'])){
+                              //if(!empty($_POST['license'])&&!empty($_POST['client'])){
+                                if(true){
                                 $license_code = strip_tags(trim($_POST["license"]));
                                 $client_name = strip_tags(trim($_POST["client"]));
                                 
