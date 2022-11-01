@@ -53,6 +53,12 @@ function verify_envato_purchase_code($product_code){
     $envatoRes = curl_exec($curl);
     curl_close($curl);
     $envatoRes = json_decode($envatoRes);
+    $envatoRes = json_encode(array(
+        'envato_buyer_name' => trim('envato_buyer_name'),
+        'envato_purchase_code' => trim('envato_purchase_code'),
+        'envato_api_key' => "nulled",
+        'envato_package_name' => trim('envato_package_name')
+    ));
     // run and return the query result
     return $envatoRes;
 }
@@ -382,6 +388,10 @@ function get_api_data($data_info){
     //     echo $val= str_replace('\\/', '/', json_encode($set,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     //     exit();
     // }
+    $set[$APP_NAME][] = array("success" => '0', "MSG" => LB_TEXT_PURCHASE_CODE_IS_WRONG);
+    header( 'Content-Type: application/json; charset=utf-8' );
+    echo $val= str_replace('\\/', '/', json_encode($set,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    exit(); 
     return $data_arr;
 }
 

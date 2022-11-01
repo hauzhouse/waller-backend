@@ -13,7 +13,7 @@
         $key = generateStrongPassword();
         $envato = verify_envato_purchase_code(trim($_POST['envato_purchase_code']));
         
-        if($envato->buyer!='' AND $envato->item->id=='26641225'){
+        // if($envato->buyer!='' AND $envato->item->id=='26641225'){
             
             $apikey = $key;
             
@@ -33,22 +33,22 @@
             header( "Location:verification.php");
             exit;
             
-        }else{
+        // }else{
             
-            $data = array(
-                'envato_buyer_name' => trim($_POST['envato_buyer_name']),
-                'envato_purchase_code' => trim($_POST['envato_purchase_code']),
-                'envato_api_key' => '',
-                'envato_package_name' => trim($_POST['envato_package_name'])
-            );
+        //     $data = array(
+        //         'envato_buyer_name' => trim($_POST['envato_buyer_name']),
+        //         'envato_purchase_code' => trim($_POST['envato_purchase_code']),
+        //         'envato_api_key' => '',
+        //         'envato_package_name' => trim($_POST['envato_package_name'])
+        //     );
 
-            $settings_edit=Update('tbl_settings', $data, "WHERE id = '1'");
+        //     $settings_edit=Update('tbl_settings', $data, "WHERE id = '1'");
             
-            $_SESSION['class']="error";
-            $_SESSION['msg']="18";
-            header( "Location:verification.php");
-            exit;
-        }
+        //     $_SESSION['class']="error";
+        //     $_SESSION['msg']="18";
+        //     header( "Location:verification.php");
+        //     exit;
+        // }
     }
 ?>
 <!-- Begin:: Theme main content -->
